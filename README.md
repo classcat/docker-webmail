@@ -27,9 +27,12 @@ $ sudo docker pull classcat/supervisord-ssh
 
 ```
 $ sudo docker run -d --name (container name) \  
--p 2022:22 -e password=(root password) \  
+-p 2022:22  \
+--link (mysql container name):mysql \  
+-e password=(root password) \  
 -e public_key="ssh-rsa xxx" \  
-classcat/supervisord-ssh
+-e MYSQL_ROOT_PASSWORD=(mysql root password)
+classcat/webmail
 ```
 
 ### example)  
