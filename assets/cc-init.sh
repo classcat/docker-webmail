@@ -6,6 +6,7 @@
 ########################################################################
 
 ### HISTORY ###
+# 05-may-15 : change named of variables.
 # 05-may-15 : mysql
 #
 
@@ -15,22 +16,22 @@
 ############
 
 function change_root_password() {
-  if [ -z "$password" ]; then
-    echo "Warning >> No password specified."
+  if [ -z "${ROOT_PASSWORD}" ]; then
+    echo "Warning >> No ROOT_PASSWORD specified."
   else
-    echo -e "root:${password}" | chpasswd
+    echo -e "root:${ROOT_PASSWORD}" | chpasswd
     # echo -e "${password}\n${password}" | passwd root
   fi
 }
 
 
 function put_public_key() {
-  if [ -z "$public_key" ]; then
-    echo "Warning >> No public key specified."
+  if [ -z "${SSH_PUBLIC_KEY}" ]; then
+    echo "Warning >> No SSH_PUBLIC_KEY specified."
   else
     mkdir -p /root/.ssh
     chmod 0700 /root/.ssh
-    echo "${public_key}" > /root/.ssh/authorized_keys
+    echo "${SSH_PUBLIC_KEY}" > /root/.ssh/authorized_keys
   fi
 }
 
