@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ########################################################################
-# ClassCat/Supervisord-SSH Asset files
+# ClassCat/Webmail Asset files
 # maintainer: Masashi Okumura < masao@classcat.com >
 ########################################################################
 
 ### HISTORY ###
-# 05-may-15 : Support a public key as well as a password 
+# 05-may-15 : mysql
 #
 
 
@@ -35,6 +35,15 @@ function put_public_key() {
 }
 
 
+#############
+### MYSQL ###
+#############
+
+function config_mysql () {
+  echo $MYSQL_ROOT_PASSWORD > /root/mysqlpass
+}
+
+
 ##################
 ### SUPERVISOR ###
 ##################
@@ -57,6 +66,7 @@ EOF
 
 change_root_password
 put_public_key
+config_mysql
 proc_supervisor
 
 exit 0
