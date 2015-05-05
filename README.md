@@ -1,13 +1,14 @@
 # Webmail
 
-Run sshd daemon under supervisord in a docker container.
+Run webmail under supervisord in a docker container.
 
 ## Overview
 
-Ubuntu Vivid/Trusty SSH images with :
+Ubuntu Vivid/Trusty webmail images with :
 
 + supervisord
 + sshd
++ webmail
 
 built on the top of the formal Ubuntu images.
 
@@ -29,8 +30,8 @@ $ sudo docker pull classcat/supervisord-ssh
 $ sudo docker run -d --name (container name) \  
 -p 2022:22  \
 --link (mysql container name):mysql \  
--e password=(root password) \  
--e public_key="ssh-rsa xxx" \  
+-e ROOT_PASSWORD=(root password) \  
+-e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
 -e MYSQL_ROOT_PASSWORD=(mysql root password)
 classcat/webmail
 ```
@@ -39,15 +40,15 @@ classcat/webmail
 
 ```
 $ sudo docker run -d --name ssh \  
--p 2022:22 -e password=mypassword classcat/supervisord-ssh
+-p 2022:22 -e ROOT_PASSWORD=mypassword classcat/supervisord-ssh
 ```
 ```
 $ sudo docker run -d --name ssh \
--p 2022:22 -e public_key="ssh-rsa xxx" classcat/supervisord-ssh
+-p 2022:22 -e SSH_PUBLIC_KEY="ssh-rsa xxx" classcat/supervisord-ssh
 ```
 ```
 $ sudo docker run -d --name ssh \  
--p 2022:22 -e password=mypassword classcat/supervisord-ssh:trusty
+-p 2022:22 -e ROOT_PASSWORD=mypassword classcat/supervisord-ssh:trusty
 ```
 
 ## Variables
