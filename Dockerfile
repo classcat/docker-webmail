@@ -1,4 +1,4 @@
-FROM classcat/ubuntu-supervisord2:vivid
+FROM classcat/ubuntu-supervisord3:vivid
 MAINTAINER ClassCat Co.,Ltd. <support@classcat.com>
 
 ########################################################################
