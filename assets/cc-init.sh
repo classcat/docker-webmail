@@ -2,13 +2,14 @@
 
 ########################################################################
 # ClassCat/Webmail Asset files
-# maintainer: Masashi Okumura < masao@classcat.com >
+# Copyright (C) 2015 ClassCat Co.,Ltd. All rights reserved.
 ########################################################################
 
-### HISTORY ###
+#--- HISTORY -----------------------------------------------------------
+# 08-may-15 : apache2ctl
 # 05-may-15 : change named of variables.
 # 05-may-15 : mysql
-#
+#-----------------------------------------------------------------------
 
 
 ############
@@ -62,8 +63,11 @@ function proc_supervisor () {
 [program:ssh]
 command=/usr/sbin/sshd -D
 
+[program:apache2]
+command=/usr/sbin/apache2ctl -D FOREGROUND
+
 [program:rsyslog]
-command=/usr/sbin/rsyslogd -n -c3
+command=/usr/sbin/rsyslogd -n
 EOF
 }
 
