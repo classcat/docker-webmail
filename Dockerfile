@@ -14,11 +14,11 @@ MAINTAINER ClassCat Co.,Ltd. <support@classcat.com>
 
 WORKDIR /usr/local
 RUN wget http://sourceforge.net/projects/roundcubemail/files/roundcubemail/1.1.1/roundcubemail-1.1.1-complete.tar.gz \
-  && tar xfz roundcubemail-1.1.1-complete.tar.gz
-  && mv /var/www/html /var/www/html.orig
-  && cp -r roundcubemail-1.1.1 /var/www/html
-  && chown -R /var/www/html
-  && chown www-data.www-data /var/www/html/logs
+  && tar xfz roundcubemail-1.1.1-complete.tar.gz \
+  && mv /var/www/html /var/www/html.orig \
+  && cp -r roundcubemail-1.1.1 /var/www/html \
+  && chown -R /var/www/html \
+  && chown www-data.www-data /var/www/html/logs \
   && chown www-data.www-data /var/www/html/temp
 
 WORKDIR /opt
