@@ -12,6 +12,10 @@ MAINTAINER ClassCat Co.,Ltd. <support@classcat.com>
 
 #RUN apt-get update && apt-get install -y mysql-client
 
+WORKDIR /usr/local
+RUN wget http://sourceforge.net/projects/roundcubemail/files/roundcubemail/1.1.1/roundcubemail-1.1.1-complete.tar.gz
+
+
 WORKDIR /opt
 COPY assets/cc-init.sh /opt/cc-init.sh
 
