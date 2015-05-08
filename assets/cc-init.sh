@@ -59,7 +59,7 @@ function config_mysql () {
   mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql -e "CREATE DATABASE webmail"
   mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql -e "GRANT ALL PRIVILEGES ON webmail.* TO webmail@'%' IDENTIFIED BY 'ClassCatWebmail'";
 
-  mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql < /usr/local/roundcubemail-1.1.1/SQL/mysql.initial.sql
+  mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql webmail < /usr/local/roundcubemail-1.1.1/SQL/mysql.initial.sql
 }
 
 
