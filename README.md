@@ -1,14 +1,14 @@
 # Webmail
 
-Run webmail under supervisord in a docker container.
+Run roundcube under the control of supervisor daemon in a docker container.
 
 ## Overview
 
-Ubuntu Vivid/Trusty webmail images with :
+Ubuntu Vivid/Trusty roundcube images with :
 
 + supervisord
 + sshd
-+ webmail
++ roundcube
 
 built on the top of the formal Ubuntu images.
 
@@ -21,14 +21,14 @@ built on the top of the formal Ubuntu images.
 ## Pull Image
 
 ```
-$ sudo docker pull classcat/supervisord-ssh
+$ sudo docker pull classcat/webmail
 ```
 
 ## Usage
 
 ```
 $ sudo docker run -d --name (container name) \  
--p 2022:22  \
+-p 2022:22 -p 80:80 \
 --link (mysql container name):mysql \  
 -e ROOT_PASSWORD=(root password) \  
 -e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
@@ -39,16 +39,18 @@ classcat/webmail
 ### example)  
 
 ```
-$ sudo docker run -d --name ssh \  
--p 2022:22 -e ROOT_PASSWORD=mypassword classcat/supervisord-ssh
+$ sudo docker run -d --name webmail \  
+-p 2022:22 -p 80:80 --link mysql:mysql \  
+-e ROOT_PASSWORD=root_password \  
+-e MYSQL_ROOT_PASSWORD=mysql_password \  
+classcat/webmail
 ```
 ```
-$ sudo docker run -d --name ssh \
--p 2022:22 -e SSH_PUBLIC_KEY="ssh-rsa xxx" classcat/supervisord-ssh
-```
-```
-$ sudo docker run -d --name ssh \  
--p 2022:22 -e ROOT_PASSWORD=mypassword classcat/supervisord-ssh:trusty
+$ sudo docker run -d --name webmail \  
+-p 2022:22 -p 80:80 --link mysql:mysql \  
+-e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
+-e MYSQL_ROOT_PASSWORD=mysql_password \  
+classcat/webmail:trusty
 ```
 
 ## Variables
