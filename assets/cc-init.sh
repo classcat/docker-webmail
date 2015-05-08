@@ -6,6 +6,7 @@
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
+# 09-may-15 : mysql init script.
 # 08-may-15 : apache2ctl
 # 05-may-15 : change named of variables.
 # 05-may-15 : mysql
@@ -57,6 +58,8 @@ function config_mysql () {
 
   mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql -e "CREATE DATABASE webmail"
   mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql -e "GRANT ALL PRIVILEGES ON webmail.* TO webmail@'%' IDENTIFIED BY 'ClassCatWebmail'";
+
+  mysql -u root -p${MYSQL_ROOT_PASSWORD} -h mysql < /usr/local/roundcubemail-1.1.1/SQL/mysql.initial.sql
 }
 
 
