@@ -12,13 +12,24 @@
 #-----------------------------------------------------------------------
 
 
+######################
+### INITIALIZATION ###
+######################
+
+function init () {
+  echo "ClassCat Info >> initialization code for ClassCat/Webmail"
+  echo "Copyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo ""
+}
+
+
 ############
 ### SSHD ###
 ############
 
 function change_root_password() {
   if [ -z "${ROOT_PASSWORD}" ]; then
-    echo "Warning >> No ROOT_PASSWORD specified."
+    echo "ClassCat Warning >> No ROOT_PASSWORD specified."
   else
     echo -e "root:${ROOT_PASSWORD}" | chpasswd
     # echo -e "${password}\n${password}" | passwd root
@@ -27,8 +38,8 @@ function change_root_password() {
 
 
 function put_public_key() {
-  if [ -z "${SSH_PUBLIC_KEY}" ]; then
-    echo "Warning >> No SSH_PUBLIC_KEY specified."
+  if [ -z "$SSH_PUBLIC_KEY" ]; then
+    echo "ClassCat Warning >> No SSH_PUBLIC_KEY specified."
   else
     mkdir -p /root/.ssh
     chmod 0700 /root/.ssh
@@ -72,6 +83,9 @@ EOF
 }
 
 
+### ENTRY POINT ###
+
+init 
 change_root_password
 put_public_key
 config_mysql
