@@ -1,6 +1,6 @@
 <?php
 // $config['db_dsnw'] = 'mysql://MYSQL_USER:MYSQL_PASSWORD@MYSQL_HOST:MYSQL_PORT/MYSQL_DB';
-$config['db_dsnw'] = 'mysql://webmail:ClassCatWebmail:@mysql/webmail';
+$config['db_dsnw'] = 'mysql://webmail:ClassCatWebmail@mysql/webmail';
 // $config['default_host'] = 'tls://MAIL_HOST';
 // $config['default_host'] = NULL;
 // $config['smtp_server'] = 'tls://MAIL_HOST';
@@ -18,4 +18,5 @@ $config['language'] = 'en_US';
 // $config['addressbook_pagesize'] = 250;
 // $config['htmleditor'] = 2;
 // $config['preview_pane'] = true;
+$config['enable_installer'] = false;
 ?>
