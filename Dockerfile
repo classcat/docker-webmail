@@ -19,7 +19,10 @@ RUN wget http://sourceforge.net/projects/roundcubemail/files/roundcubemail/1.1.1
   && cp -r roundcubemail-1.1.1 /var/www/html \
   && chown -R root.root /var/www/html \
   && chown www-data.www-data /var/www/html/logs \
-  && chown www-data.www-data /var/www/html/temp
+  && chown www-data.www-data /var/www/html/temp \
+  && rm -rf /var/www/html/installer
+
+COPY assets/config.inc.php /var/www/html/conofig/config.inc.php
 
 WORKDIR /opt
 COPY assets/cc-init.sh /opt/cc-init.sh
