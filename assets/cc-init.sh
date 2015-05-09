@@ -69,10 +69,11 @@ function config_mysql () {
 
 function set_config_inc_php () {
   local random
-  random=`pwgen -s -y 24 1`
+  random=`pwgen -s 24 1`
+  #random=`pwgen -s -y 24 1`
 
   # $config['des_key'] = '';
-  sed -ie "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" /var/www/html/config/config.inc.php
+  sed -i.bak -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" /var/www/html/config/config.inc.php
 }
 
 
