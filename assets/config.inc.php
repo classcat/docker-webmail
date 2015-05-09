@@ -2,7 +2,7 @@
 // $config['db_dsnw'] = 'mysql://MYSQL_USER:MYSQL_PASSWORD@MYSQL_HOST:MYSQL_PORT/MYSQL_DB';
 $config['db_dsnw'] = 'mysql://webmail:ClassCatWebmail@mysql/webmail';
 // $config['default_host'] = 'tls://MAIL_HOST';
-// $config['default_host'] = NULL;
+$config['default_host'] = NULL;
 // $config['smtp_server'] = 'tls://MAIL_HOST';
 $config['smtp_port'] = 25; 
 // $config['smtp_user'] = '%u';
