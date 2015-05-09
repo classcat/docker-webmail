@@ -64,6 +64,19 @@ function config_mysql () {
 
 
 ##################
+### ROUND CUBE ###
+##################
+
+function set_config_inc_php () {
+  local random
+  random = `pwgen -s -y 24 1`
+
+  # $config['des_key'] = '';
+  sed -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" /var/www/html/config/config.inc.php
+}
+
+
+##################
 ### SUPERVISOR ###
 ##################
 # See http://docs.docker.com/articles/using_supervisord/
@@ -92,6 +105,7 @@ init
 change_root_password
 put_public_key
 config_mysql
+set_config_inc_php
 proc_supervisor
 
 exit 0
