@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y pwgen \
   && cp -r roundcubemail-1.1.1 /var/www/html \
   && chown -R root.root /var/www/html \
   && chown www-data.www-data /var/www/html/logs \
-  && chown www-data.www-data /var/www/html/temp
+  && chown www-data.www-data /var/www/html/temp \
   && rm -rf /var/www/html/installer
 
 COPY assets/config.inc.php /var/www/html/config/config.inc.php
