@@ -32,7 +32,7 @@ $ sudo docker run -d --name (container name) \
 --link (mysql container name):mysql \  
 -e ROOT_PASSWORD=(root password) \  
 -e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
--e MYSQL_ROOT_PASSWORD=(mysql root password)
+-e MYSQL_ROOT_PASSWORD=(mysql root password) \  
 classcat/webmail
 ```
 
