@@ -4,6 +4,7 @@ $config['db_dsnw'] = 'mysql://webmail:ClassCatWebmail@mysql/webmail';
 // $config['default_host'] = 'tls://MAIL_HOST';
 $config['default_host'] = NULL;
 // $config['smtp_server'] = 'tls://MAIL_HOST';
+$config['smtp_server'] = '';
 $config['smtp_port'] = 25; 
 // $config['smtp_user'] = '%u';
 // $config['smtp_pass'] = '%p';
