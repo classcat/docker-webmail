@@ -6,7 +6,7 @@
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
-# 12-may-15 : smtp server. smtp_user, smtp_pass.
+# 12-may-15 : smtp server. smtp_user, smtp_pass, default_host, language.
 # 09-may-15 : mysql init script.
 # 08-may-15 : apache2ctl
 # 05-may-15 : change named of variables.
@@ -77,6 +77,11 @@ function set_config_inc_php () {
   # $config['des_key'] = '';
   sed -i.bak -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" $config_file
 
+  # $config['default_host'] = NULL;
+  if [ ! -z $DEFAULT_HOST ]; then
+    sed -i -e "s/^\$config\['default_host'\].*/\$config['default_host'] = '${DEFAULT_HOST}';/" $config_file
+  fi
+
   # $config['smtp_server'] = '';
   if [ ! -z $SMTP_SERVER ]; then
     sed -i -e "s/^\$config\['smtp_server'\].*/\$config['smtp_server'] = '${SMTP_SERVER}';/" $config_file
@@ -92,6 +97,10 @@ function set_config_inc_php () {
     sed -i -e "s/^\$config\['smtp_pass'\].*/\$config['smtp_pass'] = '${SMTP_PASS}';/" $config_file
   fi
 
+  # $config['language'] = 'en_US';
+  if [ ! -z $LANGUAGE ]; then
+    sed -i -e "s/^\$config\['language'\].*/\$config['language'] = '${LANGUAGE}';/" $config_file
+  fi
 }
 
 
