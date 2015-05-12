@@ -69,15 +69,16 @@ function config_mysql () {
 ##################
 
 function set_config_inc_php () {
+  local config_file="/var/www/html/config/config.inc.php"
   local random
   random=`pwgen -s 24 1`
   #random=`pwgen -s -y 24 1`
 
   # $config['des_key'] = '';
-  sed -i.bak -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" /var/www/html/config/config.inc.php
+  sed -i.bak -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" $config_file
 
   # $config['smtp_server'] = '';
-  sed -i -e "s/^\$config\['smtp_server'\].*/\$config['smtp_server'] = '${SMTP_SERVER}'/" /var/www/html/config/config.inc.php
+  sed -i -e "s/^\$config\['smtp_server'\].*/\$config['smtp_server'] = '${SMTP_SERVER}';/" $config_file
 }
 
 
