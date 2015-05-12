@@ -6,6 +6,7 @@
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
+# 12-may-15 : smtp server.
 # 09-may-15 : mysql init script.
 # 08-may-15 : apache2ctl
 # 05-may-15 : change named of variables.
@@ -74,6 +75,9 @@ function set_config_inc_php () {
 
   # $config['des_key'] = '';
   sed -i.bak -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" /var/www/html/config/config.inc.php
+
+  # $config['smtp_server'] = '';
+  sed -i -e "s/^\$config\['smtp_server'\].*/\$config['smtp_server'] = '${SMTP_SERVER}'/" /var/www/html/config/config.inc.php
 }
 
 

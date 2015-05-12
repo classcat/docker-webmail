@@ -33,6 +33,7 @@ $ sudo docker run -d --name (container name) \
 -e ROOT_PASSWORD=(root password) \  
 -e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
 -e MYSQL_ROOT_PASSWORD=(mysql root password) \  
+-e SMTP_SERVER=(default smtp server)__
 classcat/webmail
 ```
 
