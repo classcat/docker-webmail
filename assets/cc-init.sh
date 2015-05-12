@@ -6,7 +6,7 @@
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
-# 12-may-15 : smtp server.
+# 12-may-15 : smtp server. smtp_user, smtp_pass.
 # 09-may-15 : mysql init script.
 # 08-may-15 : apache2ctl
 # 05-may-15 : change named of variables.
@@ -78,7 +78,20 @@ function set_config_inc_php () {
   sed -i.bak -e "s/^\$config\['des_key'\].*/\$config['des_key'] = '${random}';/" $config_file
 
   # $config['smtp_server'] = '';
-  sed -i -e "s/^\$config\['smtp_server'\].*/\$config['smtp_server'] = '${SMTP_SERVER}';/" $config_file
+  if [ ! -z $SMTP_SERVER ]; then
+    sed -i -e "s/^\$config\['smtp_server'\].*/\$config['smtp_server'] = '${SMTP_SERVER}';/" $config_file
+  fi
+
+  # $config['smtp_user'] = '';
+  if [ ! -z $SMTP_USER ]; then
+    sed -i -e "s/^\$config\['smtp_user'\].*/\$config['smtp_user'] = '${SMTP_USER}';/" $config_file
+  fi
+
+  #$config['smtp_pass'] = '';
+  if [ ! -z $SMTP_PASS ]; then
+    sed -i -e "s/^\$config\['smtp_pass'\].*/\$config['smtp_pass'] = '${SMTP_PASS}';/" $config_file
+  fi
+
 }
 
 
