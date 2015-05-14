@@ -6,6 +6,7 @@
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
+# 14-may-15 : support_url
 # 12-may-15 : smtp server. smtp_user, smtp_pass, default_host, language.
 # 09-may-15 : mysql init script.
 # 08-may-15 : apache2ctl
@@ -100,6 +101,11 @@ function set_config_inc_php () {
   # $config['language'] = 'en_US';
   if [ ! -z $LANGUAGE ]; then
     sed -i -e "s/^\$config\['language'\].*/\$config['language'] = '${LANGUAGE}';/" $config_file
+  fi
+
+  # $config['support_url'] = '';
+  if [ ! -z $SUPPORT_URL ]; then
+    sed -i -e "s/^\$config\['support_url'\].*/\$config['support_url'] = '${SUPPORT_URL}';/" $config_file
   fi
 }
 
