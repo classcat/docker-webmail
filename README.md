@@ -38,10 +38,11 @@ $ sudo docker run -d --name (container name) \
 -e SMTP_USER=() \  
 -e SMTP_PASS=() \  
 -e LANGUAGE=() \  
+-e SUPPORT_URL=() \  
 classcat/webmail
 ```
 
-### example)  
+## Example usage
 
 ```
 $ sudo docker run -d --name webmail \  
