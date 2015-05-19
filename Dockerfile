@@ -7,6 +7,7 @@ MAINTAINER ClassCat Co.,Ltd. <support@classcat.com>
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
+# 19-may-15 : export 80 port, then fixed.
 #-----------------------------------------------------------------------
 
 
@@ -28,6 +29,6 @@ COPY assets/config.inc.php /var/www/html/config/config.inc.php
 WORKDIR /opt
 COPY assets/cc-init.sh /opt/cc-init.sh
 
-EXPOSE 22
+EXPOSE 22 80
 
 CMD /opt/cc-init.sh; /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
