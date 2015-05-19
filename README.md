@@ -1,16 +1,21 @@
 # Webmail
 
-Run roundcube under the control of supervisor daemon in a docker container.
+## Summary
 
-## Overview
+Dockerized Webmail ( [Roundcube](https://roundcube.net/) ).  
+Run roundcube under the control of supervisor daemon in a docker container.  
 
-Ubuntu Vivid/Trusty roundcube images with :
+Ubuntu Vivid/Trusty images with the following services :
 
++ Roundcube
 + supervisord
 + sshd
-+ roundcube
 
 built on the top of the formal Ubuntu images.
+
+## Maintainer
+
+[ClassCat Co.,Ltd.](http://www.classcat.com/) (This website is written in Japanese.)
 
 ## TAGS
 
@@ -27,40 +32,33 @@ $ sudo docker pull classcat/webmail
 ## Usage
 
 ```
-$ sudo docker run -d --name (container name) \  
+$ sudo docker run -d --name (container-name) \  
 -p 2022:22 -p 80:80 \
---link (mysql container name):mysql \  
--e ROOT_PASSWORD=(root password) \  
+--link (mysql-container-name):mysql \  
+-e ROOT_PASSWORD=(root-password) \  
 -e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
--e MYSQL_ROOT_PASSWORD=(mysql root password) \
--e DEFAULT_HOST=(default host) \  
--e SMTP_SERVER=(default smtp server) \__
--e SMTP_USER=() \  
--e SMTP_PASS=() \  
--e LANGUAGE=() \  
--e SUPPORT_URL=() \  
+-e MYSQL_ROOT_PASSWORD=(mysql-root-password) \
+-e DEFAULT_HOST=(default-host) \  
+-e SMTP_SERVER=(default-smtp-server) \__
+-e SMTP_USER=(smtp-user) \  
+-e SMTP_PASS=(smtp-user-password) \  
+-e LANGUAGE=(language) \  
+-e SUPPORT_URL=(support-url) \  
 classcat/webmail
 ```
 
 ## Example usage
 
 ```
-$ sudo docker run -d --name webmail \  
--p 2022:22 -p 80:80 --link mysql:mysql \  
--e ROOT_PASSWORD=root_password \  
--e MYSQL_ROOT_PASSWORD=mysql_password \  
-classcat/webmail
+docker run -d --name mywebmail -p 2022:22 -p 80:80 \
+  -e ROOT_PASSWORD=mypassword \  
+  -e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
+  --link mysql:mysql \
+  -e MYSQL_ROOT_PASSWORD=mypassword \  
+  -e DEFAULT_HOST=mailsvr.classcat.com \  
+  -e SMTP_SERVER=mailsvr.classcat.com \  
+  -e SMTP_USER=foo \  
+  -e SMTP_PASS=foo_password \  
+  -e LANGUAGE=en_US \
+  classcat/webmail
 ```
-```
-$ sudo docker run -d --name webmail \  
--p 2022:22 -p 80:80 --link mysql:mysql \  
--e SSH_PUBLIC_KEY="ssh-rsa xxx" \  
--e MYSQL_ROOT_PASSWORD=mysql_password \  
-classcat/webmail:trusty
-```
-
-## Variables
-
-## Known Issues
-
-## Reference
