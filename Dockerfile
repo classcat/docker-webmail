@@ -1,4 +1,4 @@
-FROM classcat/ubuntu-supervisord3:vivid
+FROM classcat/ubuntu-supervisord3:trusty
 MAINTAINER ClassCat Co.,Ltd. <support@classcat.com>
 
 ########################################################################
@@ -7,6 +7,7 @@ MAINTAINER ClassCat Co.,Ltd. <support@classcat.com>
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
+# 19-may-15 : trusty.
 # 19-may-15 : export 80 port, then fixed.
 #-----------------------------------------------------------------------
 
