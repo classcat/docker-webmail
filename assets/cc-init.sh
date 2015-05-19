@@ -6,6 +6,7 @@
 ########################################################################
 
 #--- HISTORY -----------------------------------------------------------
+# 19-may-15 : fixed.
 # 14-may-15 : support_url
 # 12-may-15 : smtp server. smtp_user, smtp_pass, default_host, language.
 # 09-may-15 : mysql init script.
@@ -116,10 +117,6 @@ function set_config_inc_php () {
 # See http://docs.docker.com/articles/using_supervisord/
 
 function proc_supervisor () {
-# removed the followings:
-#[supervisord]
-#nodaemon=true
-
   cat > /etc/supervisor/conf.d/supervisord.conf <<EOF
 [program:ssh]
 command=/usr/sbin/sshd -D
