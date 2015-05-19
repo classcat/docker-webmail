@@ -29,6 +29,10 @@ built on the top of the formal Ubuntu images.
 $ sudo docker pull classcat/webmail
 ```
 
+## Requirement
+
+mysql container to link with mysql root password.
+
 ## Usage
 
 ```
